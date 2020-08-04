@@ -209,17 +209,21 @@ inquirer
     console.log(cyan('Updating the scripts'));
     delete appPackage.scripts['eject'];
     Object.keys(appPackage.scripts).forEach(key => {
+      const scriptKey = key;
+      if (key === 'dev') {
+        key = 'start';
+      }
       Object.keys(ownPackage.bin).forEach(binKey => {
         const regex = new RegExp(binKey + ' (\\w+)', 'g');
-        if (!regex.test(appPackage.scripts[key])) {
+        if (!regex.test(appPackage.scripts[scriptKey])) {
           return;
         }
-        appPackage.scripts[key] = appPackage.scripts[key].replace(
+        appPackage.scripts[scriptKey] = appPackage.scripts[scriptKey].replace(
           regex,
           'node scripts/$1.js'
         );
         console.log(
-          `  Replacing ${cyan(`"${binKey} ${key}"`)} with ${cyan(
+          `  Replacing ${cyan(`"${binKey} ${scriptKey}"`)} with ${cyan(
             `"node scripts/${key}.js"`
           )}`
         );

@@ -174,7 +174,7 @@ module.exports = function(
   const templateScripts = templatePackage.scripts || templateJson.scripts || {};
   appPackage.scripts = Object.assign(
     {
-      start: 'react-scripts start',
+      dev: 'react-scripts start',
       build: 'react-scripts build',
       test: 'react-scripts test',
       eject: 'react-scripts eject',
@@ -348,7 +348,7 @@ module.exports = function(
   console.log(`Success! Created ${appName} at ${appPath}`);
   console.log('Inside that directory, you can run several commands:');
   console.log();
-  console.log(chalk.cyan(`  ${displayedCommand} start`));
+  console.log(chalk.cyan(`  ${displayedCommand} dev`));
   console.log('    Starts the development server.');
   console.log();
   console.log(
