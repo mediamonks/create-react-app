@@ -97,6 +97,7 @@ checkBrowsers(paths.appPath, isInteractive)
     const appName = require(paths.appPackageJson).name;
     const useTypeScript = fs.existsSync(paths.appTsConfig);
     const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === 'true';
+    const shouldTypeCheck = process.env.TYPE_CHECK !== 'false';
     const urls = prepareUrls(
       protocol,
       HOST,
@@ -116,9 +117,10 @@ checkBrowsers(paths.appPath, isInteractive)
       devSocket,
       urls,
       useYarn,
-      useTypeScript,
       tscCompileOnError,
       webpack,
+      // this only affects the logging
+      useTypeScript: shouldTypeCheck && useTypeScript,
     });
     // Load proxy config
     const proxySetting = require(paths.appPackageJson).proxy;

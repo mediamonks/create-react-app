@@ -51,6 +51,7 @@ const imageInlineSizeLimit = parseInt(
 
 // Check if TypeScript is setup
 const useTypeScript = fs.existsSync(paths.appTsConfig);
+const shouldTypeCheck = process.env.TYPE_CHECK !== 'false';
 
 // style files regexes
 const cssRegex = /\.css$/;
@@ -645,6 +646,7 @@ module.exports = function(webpackEnv) {
         }),
       // TypeScript type checking
       useTypeScript &&
+        shouldTypeCheck &&
         new ForkTsCheckerWebpackPlugin({
           typescript: resolve.sync('typescript', {
             basedir: paths.appNodeModules,
