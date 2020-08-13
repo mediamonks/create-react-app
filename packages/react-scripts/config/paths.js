@@ -123,6 +123,7 @@ if (
     appIndexJs: resolveModule(resolveOwn, `${templatePath}/src/index`),
     appPackageJson: resolveOwn('package.json'),
     appSrc: resolveOwn(`${templatePath}/src`),
+    appPolyfills: resolveOwn(`${templatePath}/src/polyfills`),
     appTsConfig: resolveOwn(`${templatePath}/tsconfig.json`),
     appJsConfig: resolveOwn(`${templatePath}/jsconfig.json`),
     yarnLockFile: resolveOwn(`${templatePath}/yarn.lock`),
