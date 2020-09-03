@@ -1,10 +1,10 @@
 {
-  "name": "@psimk/react-scripts",
-  "version": "1.0.0",
+  "name": "@mediamonks/react-scripts",
+  "version": "1.0.1",
   "description": "MM version of react-scripts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/psimk/create-react-app.get",
+    "url": "https://github.com/mediamonks/create-react-app.get",
     "directory": "packages/react-scripts"
   },
   "license": "MIT",
@@ -12,7 +12,7 @@
     "node": ">=8.10"
   },
   "bugs": {
-    "url": "https://github.com/psimk/create-react-app/issues"
+    "url": "https://github.com/mediamonks/create-react-app/issues"
   },
   "files": [
     "bin",

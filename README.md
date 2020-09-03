@@ -2,7 +2,7 @@
 
 Create React apps with no build configuration.
 
-- [Differences from CRA](https://github.com/psimk/cra-template-mm-base) – How to create a new app.
+- [Differences from CRA](https://github.com/mediamonks/cra-template-mm-base) – How to create a new app.
 - [Creating an App](#creating-an-app) – How to create a new app.
 - [User Guide](https://facebook.github.io/create-react-app/) – How to develop apps bootstrapped with Create React App.
 
