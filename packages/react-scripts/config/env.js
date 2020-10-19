@@ -15,6 +15,9 @@ const paths = require('./paths');
 // Make sure that including paths.js after env.js will read .env variables.
 delete require.cache[require.resolve('./paths')];
 
+const getVersionPath = require('./versioning').getVersionPath;
+
+
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {
   throw new Error(
@@ -93,6 +96,7 @@ function getClientEnvironment(publicUrl) {
         WDS_SOCKET_HOST: process.env.WDS_SOCKET_HOST,
         WDS_SOCKET_PATH: process.env.WDS_SOCKET_PATH,
         WDS_SOCKET_PORT: process.env.WDS_SOCKET_PORT,
+        VERSION_PATH: getVersionPath(process.env.NODE_ENV)
       }
     );
   // Stringify all values so we can feed into webpack DefinePlugin
