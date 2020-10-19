@@ -96,7 +96,7 @@ function getClientEnvironment(publicUrl) {
         WDS_SOCKET_HOST: process.env.WDS_SOCKET_HOST,
         WDS_SOCKET_PATH: process.env.WDS_SOCKET_PATH,
         WDS_SOCKET_PORT: process.env.WDS_SOCKET_PORT,
-        VERSION_PATH: getVersionPath(process.env.NODE_ENV)
+        VERSION_PATH: process.env.ENABLE_VERSIONING === 'true' ? getVersionPath(process.env.NODE_ENV) : '',
       }
     );
   // Stringify all values so we can feed into webpack DefinePlugin

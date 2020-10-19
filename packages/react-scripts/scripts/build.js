@@ -225,8 +225,10 @@ function copyPublicFolder() {
     dereference: true,
     filter: file => file !== paths.appHtml,
   });
-  fs.copySync(paths.appPublic, paths.appBuild + getVersionPath('production'), {
-    dereference: true,
-    filter: file => file !== paths.appHtml,
-  });
+  if (process.env.ENABLE_VERSIONING === 'true') {
+    fs.copySync(paths.appPublic, paths.appBuild + getVersionPath('production'), {
+      dereference: true,
+      filter: file => file !== paths.appHtml,
+    });
+  }
 }
