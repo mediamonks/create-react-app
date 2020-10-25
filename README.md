@@ -1,5 +1,7 @@
 # Custom Create React App
 
+<img alt="Logo" align="right" src="https://create-react-app.dev/img/logo.svg" width="20%" />
+
 Create React apps with no build configuration.
 
 - [Differences from CRA](https://github.com/mediamonks/cra-template-mm-base) – How to create a new app.

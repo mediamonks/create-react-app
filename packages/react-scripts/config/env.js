@@ -17,7 +17,6 @@ delete require.cache[require.resolve('./paths')];
 
 const getVersionPath = require('./versioning').getVersionPath;
 
-
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {
   throw new Error(
@@ -28,11 +27,11 @@ if (!NODE_ENV) {
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
 const dotenvFiles = [
   `${paths.dotenv}.${NODE_ENV}.local`,
-  `${paths.dotenv}.${NODE_ENV}`,
   // Don't include `.env.local` for `test` environment
   // since normally you expect tests to produce the same
   // results for everyone
   NODE_ENV !== 'test' && `${paths.dotenv}.local`,
+  `${paths.dotenv}.${NODE_ENV}`,
   paths.dotenv,
 ].filter(Boolean);
 
@@ -96,7 +95,15 @@ function getClientEnvironment(publicUrl) {
         WDS_SOCKET_HOST: process.env.WDS_SOCKET_HOST,
         WDS_SOCKET_PATH: process.env.WDS_SOCKET_PATH,
         WDS_SOCKET_PORT: process.env.WDS_SOCKET_PORT,
-        VERSION_PATH: process.env.ENABLE_VERSIONING === 'true' ? getVersionPath(process.env.NODE_ENV) : '',
+        VERSION_PATH:
+          process.env.ENABLE_VERSIONING === 'true'
+            ? getVersionPath(process.env.NODE_ENV)
+            : '',
+        // Whether or not react-refresh is enabled.
+        // react-refresh is not 100% stable at this time,
+        // which is why it's disabled by default.
+        // It is defined here so it is available in the webpackHotDevClient.
+        FAST_REFRESH: process.env.FAST_REFRESH !== 'false',
       }
     );
   // Stringify all values so we can feed into webpack DefinePlugin

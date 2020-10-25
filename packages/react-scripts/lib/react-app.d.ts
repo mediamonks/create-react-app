@@ -9,6 +9,11 @@ declare namespace NodeJS {
   }
 }
 
+declare module '*.avif' {
+  const src: string;
+  export default src;
+}
+
 declare module '*.bmp' {
   const src: string;
   export default src;
@@ -35,8 +40,8 @@ declare module '*.png' {
 }
 
 declare module '*.webp' {
-    const src: string;
-    export default src;
+  const src: string;
+  export default src;
 }
 
 declare module '*.svg' {
